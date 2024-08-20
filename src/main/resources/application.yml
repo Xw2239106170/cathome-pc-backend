@@ -31,6 +31,6 @@ aliyun:
 logging:
   level:
     org.springframework.jdbc.support.JdbcTransactionManager: debug
-
+#端口
 server:
-  port: 8081
+  port: 8080

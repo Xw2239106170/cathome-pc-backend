@@ -6,6 +6,7 @@ import com.cathome.pojo.vo.LoginVo;
 import com.cathome.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * 管理员数据处理
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class ManagerServiceImpl implements ManagerService {
     @Autowired
     private ManagerMapper managerMapper;

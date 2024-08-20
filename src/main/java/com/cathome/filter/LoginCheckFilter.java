@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.cathome.pojo.Result;
 import com.cathome.utils.JwtUtils;
 import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +16,7 @@ import java.io.IOException;
  * 登录过滤器
  */
 @Slf4j
-//@WebFilter("/*")
+@WebFilter("/*")
 public class LoginCheckFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

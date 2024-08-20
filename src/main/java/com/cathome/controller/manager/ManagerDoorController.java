@@ -7,9 +7,7 @@ import com.cathome.service.ManagerService;
 import com.cathome.utils.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.event.WindowFocusListener;
 import java.util.HashMap;
@@ -18,6 +16,7 @@ import java.util.Map;
 
 @Slf4j
 @RestController
+@CrossOrigin(origins = "*")
 public class ManagerDoorController {
     @Autowired
     private ManagerService managerService;
