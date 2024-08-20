@@ -7,6 +7,7 @@ import com.cathome.service.ManagerService;
 import com.cathome.utils.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.event.WindowFocusListener;
@@ -17,6 +18,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @CrossOrigin(origins = "*")
+@Transactional(rollbackFor = Exception.class)
 public class ManagerDoorController {
     @Autowired
     private ManagerService managerService;
