@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ManagerPojo {
     private Short id;
-    private String mangerName;
+    private String managerName;
     private String password;
     private String name;
     private Short gender;

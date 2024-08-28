@@ -26,4 +26,11 @@ public interface ManagerService {
      * @return
      */
     List<ManagerPojo> selectManager(LoginVo loginVo);
+
+    /**
+     * 查询详细用户信息
+     * @param managerName
+     * @return
+     */
+    List<ManagerPojo> selectDetailManager(String managerName);
 }

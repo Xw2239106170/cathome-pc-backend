@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cathome.mapper.cat.CatMapper">
+    <!-- 分页查询动态sql -->
+    <select id="selectCat" resultType="com.cathome.pojo.cat.CatPojo">
+        select *
+        from cat_common
+        <where>
+            <if test="catName != null and catName != ''">
+                cat_name = #{catName}
+            </if>
+            <if test="state != null and state != ''">
+                and state = #{state}
+            </if>
+        </where>
+    </select>
+</mapper>
+

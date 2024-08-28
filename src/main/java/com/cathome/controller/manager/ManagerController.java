@@ -7,9 +7,7 @@ import com.cathome.service.impl.ManagerServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,8 +18,14 @@ import java.util.List;
 @RestController
 @Transactional(rollbackFor = Exception.class)
 @Slf4j
+//@CrossOrigin(origins = "*")
 public class ManagerController {
     @Autowired
     private ManagerService managerService;
 
+    @GetMapping("/man")
+    public Result managerDetail(@RequestParam String managerName){
+        log.info("查询到的信息{}", managerService.selectDetailManager(managerName));
+        return Result.success(managerService.selectDetailManager(managerName));
+    }
 }

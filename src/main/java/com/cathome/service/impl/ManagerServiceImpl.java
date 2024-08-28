@@ -47,4 +47,14 @@ public class ManagerServiceImpl implements ManagerService {
     public List<ManagerPojo> selectManager(LoginVo loginVo){
         return managerMapper.RegisterList(loginVo);
     }
+
+    /**
+     * 查询登录详细用户信息
+     * @param managerName
+     * @return
+     */
+    @Override
+    public List<ManagerPojo> selectDetailManager(String managerName) {
+        return managerMapper.managerDetail(managerName);
+    }
 }

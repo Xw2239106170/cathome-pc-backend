@@ -35,4 +35,12 @@ public interface ManagerMapper {
      */
     @Select("select * from cat_manager where manager_name = #{managerName}")
     List<ManagerPojo> RegisterList(LoginVo loginVo);
+
+    /**
+     * 根据用户名查询用户详细个人信息
+     * @param managerName
+     * @return
+     */
+    @Select("select * from cat_manager where manager_name = #{managerName};")
+    List<ManagerPojo> managerDetail(String managerName);
 }
