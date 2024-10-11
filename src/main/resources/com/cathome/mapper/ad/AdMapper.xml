@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cathome.mapper.ad.AdMapper">
+    <select id="adList" resultType="com.cathome.pojo.ad.AdPojo">
+        select *
+        from cat_ad
+        <where>
+            <if test="adName != null and adName != ''">
+                ad_name = #{adName}
+            </if>
+            <if test="brandName != null and brandName != ''">
+                and brand_name = #{brandName}
+            </if>
+        </where>
+    </select>
+    <!--  批量删除操作  -->
+    <delete id="adsDelete">
+        delete from cat_ad
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

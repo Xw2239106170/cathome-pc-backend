@@ -33,4 +33,6 @@ public interface ManagerService {
      * @return
      */
     List<ManagerPojo> selectDetailManager(String managerName);
+
+    void managerUpdate(ManagerPojo managerPojo);
 }

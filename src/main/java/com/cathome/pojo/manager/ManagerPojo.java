@@ -18,7 +18,7 @@ public class ManagerPojo {
     private String managerName;
     private String password;
     private String name;
-    private Short gender;
+    private String gender;
     private String image;
     private LocalDate entrydata;
 }

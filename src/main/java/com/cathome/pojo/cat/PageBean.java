@@ -1,6 +1,5 @@
-package com.cathome.pojo;
+package com.cathome.pojo.cat;
 
-import com.cathome.pojo.cat.CatPojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

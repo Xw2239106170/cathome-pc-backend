@@ -26,6 +26,7 @@ public class ManagerServiceImpl implements ManagerService {
      */
     @Override
     public List<ManagerPojo> manageList(LoginVo loginVo) {
+        if(managerMapper.managerList(loginVo).isEmpty()) return null;
         return managerMapper.managerList(loginVo);
     }
 
@@ -55,6 +56,16 @@ public class ManagerServiceImpl implements ManagerService {
      */
     @Override
     public List<ManagerPojo> selectDetailManager(String managerName) {
+
         return managerMapper.managerDetail(managerName);
+    }
+
+    /**
+     * 更新用户信息逻辑
+     * @param managerPojo
+     */
+    @Override
+    public void managerUpdate(ManagerPojo managerPojo) {
+        managerMapper.managerUpdate(managerPojo);
     }
 }

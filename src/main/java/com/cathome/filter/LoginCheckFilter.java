@@ -34,7 +34,7 @@ public class LoginCheckFilter implements Filter {
         //2.获取响应头中的token
         String jwt = req.getHeader("token");
         //判断jwt是否为空,
-        if(!StringUtils.hasLength(jwt)){ //是空则是未登录
+        if(!StringUtils.hasLength(jwt)){  //是空则是未登录
             log.info("token令牌为空，用户为未登录");
             Result err = Result.error("还未登陆哦~");
             //将未登录的数据，绑定在响应中，返回给前端

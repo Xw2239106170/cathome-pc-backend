@@ -13,8 +13,8 @@ public class CatPojo {
     private Integer id;
     private String catName;
     private Integer age;
-    private Short state;
-    private String condition;
+    private String state;
+    private String health;
     private String address;
     private String image;
     private LocalDate entrydate;

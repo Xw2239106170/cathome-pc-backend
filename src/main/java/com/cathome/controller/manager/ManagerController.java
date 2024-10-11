@@ -1,6 +1,7 @@
 package com.cathome.controller.manager;
 
 import com.cathome.pojo.Result;
+import com.cathome.pojo.manager.ManagerPojo;
 import com.cathome.pojo.vo.LoginVo;
 import com.cathome.service.ManagerService;
 import com.cathome.service.impl.ManagerServiceImpl;
@@ -18,7 +19,7 @@ import java.util.List;
 @RestController
 @Transactional(rollbackFor = Exception.class)
 @Slf4j
-//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 public class ManagerController {
     @Autowired
     private ManagerService managerService;
@@ -27,5 +28,16 @@ public class ManagerController {
     public Result managerDetail(@RequestParam String managerName){
         log.info("查询到的信息{}", managerService.selectDetailManager(managerName));
         return Result.success(managerService.selectDetailManager(managerName));
+    }
+
+    /**
+     * 更新用户信息
+     * @param managerPojo
+     * @return
+     */
+    @PutMapping("/man")
+    public Result managerUpdate(@RequestBody ManagerPojo managerPojo){
+        managerService.managerUpdate(managerPojo);
+        return Result.success();
     }
 }

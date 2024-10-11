@@ -1,6 +1,7 @@
-//package com.airport.airaistudy.config;
+//package com.cathome.config;
 //
-//import com.airport.airaistudy.interceptor.LoginCheckInterceptor;
+//
+//import com.cathome.interceptor.LoginCheckInterceptor;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

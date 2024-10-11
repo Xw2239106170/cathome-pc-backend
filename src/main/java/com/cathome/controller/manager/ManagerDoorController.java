@@ -32,7 +32,7 @@ public class ManagerDoorController {
     public Result managerList(@RequestBody LoginVo loginVo){
         List<ManagerPojo> managerPojoList = managerService.manageList(loginVo);
         log.info("登录查询的数据{}", managerPojoList);
-        if(managerPojoList == null) return Result.error("还未登录哦~");
+        if(managerPojoList == null) return Result.error("还未注册哦~");
 
         //绑定管理员的登录信息
         Map<String, Object> claims = new HashMap<>();

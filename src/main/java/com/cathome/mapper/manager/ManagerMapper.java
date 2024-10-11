@@ -5,6 +5,7 @@ import com.cathome.pojo.vo.LoginVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -43,4 +44,7 @@ public interface ManagerMapper {
      */
     @Select("select * from cat_manager where manager_name = #{managerName};")
     List<ManagerPojo> managerDetail(String managerName);
+
+    @Update("update cat_manager set manager_name = #{managerName} ,name=#{name},password=#{password}, gender =#{gender},image=#{image} where id = #{id};")
+    void managerUpdate(ManagerPojo managerPojo);
 }
