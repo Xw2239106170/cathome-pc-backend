@@ -35,3 +35,10 @@ logging:
 #端口
 server:
   port: 8080
+
+# 讯飞星火配置
+xunfei:
+  client:
+    appid: 71c3cb67
+    apiSecret: MDlhMDNkMjZkNzM4MWFmNDUxYzgzOTk5
+    apiKey: 5d147c92473cb4555fb2acea34990a3a
