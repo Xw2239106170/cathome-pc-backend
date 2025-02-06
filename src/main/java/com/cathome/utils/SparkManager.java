@@ -21,7 +21,7 @@ public class SparkManager {
     /**
      * AI生成问题的预设条件
      */
-    public static final String PRECONDITION = "小猫管理平台的，小帮手";
+    public static final String PRECONDITION = "听话不反驳的小猫管理平台的，小帮手";
 
 
     /**

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cathome.mapper.code.QRCodeMapper">
+
+    <resultMap id="BaseResultMap" type="com.cathome.pojo.QRCodeRecord">
+        <id column="id" property="id" />
+        <result column="qr_code" property="qrCode" />
+        <result column="status" property="status"
+                typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+        <result column="user_id" property="userId" />
+        <result column="create_time" property="createTime" />
+        <result column="expire_time" property="expireTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, qr_code, status, user_id, create_time, expire_time
+    </sql>
+
+    <insert id="insert" parameterType="com.cathome.pojo.QRCodeRecord"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO qr_code_record (
+            qr_code, status, expire_time
+        ) VALUES (
+            #{qrCode}, #{status}, #{expireTime}
+        )
+    </insert>
+
+    <select id="selectByQRCode" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM qr_code_record
+        WHERE qr_code = #{qrCode}
+    </select>
+
+    <update id="updateById" parameterType="com.cathome.pojo.QRCodeRecord">
+        UPDATE qr_code_record
+        <set>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="expireTime != null">
+                expire_time = #{expireTime}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteExpired">
+        DELETE FROM qr_code_record
+        WHERE expire_time &lt; #{expireTime}
+    </delete>
+
+    <update id="updateStatus">
+        UPDATE qr_code_record
+        SET status = #{status},
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            update_time = CURRENT_TIMESTAMP
+        WHERE qr_code = #{qrCode}
+    </update>
+</mapper>
